@@ -1,0 +1,25 @@
+{
+  "name": "tbmp-cocos-adapter",
+  "version": "1.0.0",
+  "description": "淘宝小程序cocos引擎适配器",
+  "main": "lib/adapter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ppgee/tbmp-cocos-adapter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ppgee/tbmp-cocos-adapter/issues"
+  },
+  "homepage": "https://github.com/ppgee/tbmp-cocos-adapter#readme",
+  "devDependencies": {
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
