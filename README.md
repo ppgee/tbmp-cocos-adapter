@@ -1,7 +1,5 @@
-# tbmp-cocos-adapter
-淘宝小程序cocos引擎适配器
-
-# cocos 适配过程
+# 淘宝小程序cocos引擎适配器
+因为考虑到市面上cocos的游戏较多，适合业务发展，而淘宝小程序的创意互动只支持3款游戏引擎，而不支持cocos，所以特此开发cocos引擎适配器
 
 ## 适配前提
 
@@ -27,7 +25,7 @@ var window = $global;
 
 ## 打包后的代码需要更改的地方
 
-### 改造 app.js
+### 改造 app.js（插入game.js里面的逻辑）
 
 ```js
 // app.js
@@ -91,37 +89,6 @@ App({
     onHideCB && onHideCB();
   },
 });
-```
-
-### 改造 game.js
-
-```js
-// game.js
-var window = $global;
-
-("use strict");
-
-require("adapter-min.js");
-
-$global.__globalAdapter.init();
-
-require("cocos2d-js-min.js");
-
-require("physics-min.js");
-
-$global.__globalAdapter.adaptEngine();
-
-require("./ccRequire");
-
-require("./src/settings"); // Introduce Cocos Service here
-
-require("./main"); // TODO: move to common
-// Adjust devicePixelRatio
-
-$global.cc.view._maxPixelRatio = 4; // Release Image objects after uploaded gl texture
-
-$global.cc.macro.CLEANUP_IMAGE_CACHE = true;
-window.boot();
 ```
 
 ### 改造 src/settings.js
