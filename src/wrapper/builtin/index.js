@@ -1,5 +1,6 @@
 const document = require('./document');
 const window = require('./window');
+const { isIDE } = require('./util')
 
 function inject() {
   // 暴露全局的 canvas
@@ -16,6 +17,11 @@ function inject() {
 
   // const { platform } = my.getSystemInfoSync()
 
+  if (isIDE) {
+    $global.parent = window
+  }
+
+  $global.my = my
   Object.assign($global, window);
 }
 

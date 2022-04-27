@@ -56,16 +56,30 @@ if (window.__globalAdapter) {
   utils.cloneMethod(globalAdapter, my, 'getOpenDataContext');
   utils.cloneMethod(globalAdapter, my, 'onMessage');
 
-  // Subpackage not supported
-  // utils.cloneMethod(globalAdapter, my, 'loadSubpackage');
+  utils.cloneMethod(globalAdapter, my, 'loadSubpackage');
 
   // SharedCanvas
   utils.cloneMethod(globalAdapter, my, 'getSharedCanvas');
 
   // Font
   globalAdapter.loadFont = function (url) {
+    // const tcpValid = /http|https/
+    // const fontFace = url.split('/').pop().split('.').shift()
+    // my.loadFontFace({
+    //   global: true,
+    //   family: fontFace,
+    //   source: `url(${tcpValid.test(url) ? url : './' + url})`,
+    //   success() {
+    //     console.log(`loadfontface 加载 ${fontFace} 成功!!!`)
+    //   },
+    //   fail: (err) => {
+    //     console.error(JSON.stringify(err))
+    //   },
+    // })
+    // return fontFace;
+    
     // my.loadFont crash when url is not in user data path
-    return "Arial";
+    return 'Arial'
   };
 
   // hide show Event
